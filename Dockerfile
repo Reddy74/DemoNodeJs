@@ -1,6 +1,6 @@
 #Base Image node:12.18.4-alpine
 #FROM node:12.18.4-alpine
-$FROM node:16.19.1 as build
+#FROM node:16.19.1 as build
 
 #Set working directory to /app
 #WORKDIR /app
