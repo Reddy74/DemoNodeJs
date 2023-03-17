@@ -45,13 +45,19 @@ pipeline {
         }
       }
       
-    stage('Deploy') {
-     steps{
-            withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
-                script {
-			sh './script.sh'
-                }
-            } 
+	 stage('Deploy in ECS') {
+  	steps {
+     		sh "aws ecs update-service --cluster ${CLUSTER_NAME} --service ${SERVICE_NAME} --force-new-deployment"
+           
+      		}
+    	}    
+    //stage('Deploy') {
+     //steps{
+            //withAWS(credentials: registryCredential, region: "${AWS_DEFAULT_REGION}") {
+                //script {
+		//	sh './script.sh'
+              //  }
+            //} 
         }
       }      
       
