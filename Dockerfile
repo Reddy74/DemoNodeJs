@@ -21,7 +21,7 @@
 
 
 
-FROM node:18.10 as build
+FROM node:16.19.1 as build
 WORKDIR /app
 
 RUN npm install -g @angular/cli
